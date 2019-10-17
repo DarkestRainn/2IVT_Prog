@@ -35,7 +35,45 @@ void main() {
 }
 
 void lab5_1() {
-	
+	const int n = 6;
+	const int q = 50;
+	const int q1 = 25;
+	int mas1[n][n], mas2[n][n],b[n], i, j;
+	//заполнение матриц случайными числами
+	srand(time(NULL));
+	cout << "Матрица 1: " << endl;
+	for (i = 0; i < n; i++) {
+		cout << i << ": ";
+		for (j = 0; j < n; j++) {
+			mas1[i][j] = rand() % q-q1;
+			cout << mas1[i][j] << "\t";
+		}
+		cout << endl;
+	}
+	cout << endl << "Матрица 2: " << endl;
+	for (i = 0; i < n; i++) {
+		cout << i << ": ";
+		for (j = 0; j < n; j++) {
+			mas2[i][j] = rand() % q-q1;
+			cout << mas2[i][j] << "\t";
+		}
+		cout << endl;
+	}
+	cout << endl;
+	for (i = 0; i < n; i++) {
+		for (j = 0; j < n; j++) {
+			if (mas1[i][j] >= 0 || mas2[i][j] >= 0) {
+				b[i] = 0;
+				break;
+			} b[i] = 1;
+		}
+	}
+	//вывод массива b
+	cout << "Массив b: ";
+	for (i = 0; i < n; i++) {
+		cout << b[i] << "\t";
+	}
+	cout << endl << endl;
 }
 
 void lab5_2() {
@@ -44,6 +82,7 @@ void lab5_2() {
 	int max, num = 0, amount = 0;
 	srand(time(NULL));
 	cout << "Массив:\n";
+	//заполнение матриц случайными числами
 	for (int i = 0; i < n; i++) {
 		mas[i] = rand() % 500;
 		cout << i + 1 << ": " << mas[i] << endl;
@@ -65,19 +104,22 @@ void lab5_2() {
 }
 
 void lab5_3() {
-	const int n = 5;
-	const int m = 5;
-	int mas[n][m];
-	int i, j, amount_column_with_0 = 0;
+	const int n = 10;
+	const int m = 10;
+	const int q = 20;
+	int mas[n][m], b[m], h[m], i, j, amount_column_with_0 = 0, num_str, max = 0;
+	bool flag = false;
 	srand(time(NULL));
+	// заполнение массива случайными значениями
 	for (i = 0; i < n; i++) {
 		cout << "Строка " << i<<": ";
 		for (j = 0; j < m; j++) {
-			mas[i][j] = rand() % 5;
+			mas[i][j] = rand() % q;
 			cout << mas[i][j] << "\t";
 		}
 		cout << endl;
 	}
+	// поиск кол-ва столбцов с хотя бы одним нулём
 	for (j = 0; j < n; j++) {
 		for (i = 0; i < m; i++) {
 			if (mas[i][j] == 0) {
@@ -86,5 +128,41 @@ void lab5_3() {
 			}
 		}
 	}
-	cout << amount_column_with_0 << endl;
+	cout << "Кол-во столбцов, содержащих хотя бы один нулевой элемент: " << amount_column_with_0 << endl;
+	// заполнение нулями массивов
+	for (i = 0; i < m; i++) {
+		b[i] = 0;
+		h[i] = 0;
+	}
+	// вычисление серий одинаковых элементов каждой строки
+	for (i = 0; i < n; i++) {
+		for (j = 0; j < m; j++) {
+			if (mas[i][j] == mas[i][j + 1]) {
+				if (j + 1 > m) {
+					break;
+				}
+				b[i]++;
+				flag = true;
+				if (b[i] > h[i]) {
+					h[i] = b[i];
+				}
+			} else { b[i] = 0; }
+		}
+	}
+	//выбор строки с максимальной серией
+	if (flag) {
+		cout << "Самая длинная серия элементов находится в строке(строках): ";
+		for (i = 0; i < m; i++) {
+			if (h[i] > max) {
+				max = h[i];
+				num_str = i;
+			}
+		}
+		for (i = 0; i < m; i++) {
+			if (h[i] == max) {
+				cout << "#" << i << " ";
+			}
+		}
+	} else cout << "Серий нет" << endl;
+	cout << endl;
 }
