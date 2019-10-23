@@ -2,12 +2,13 @@
 #include "windows.h"
 #include <stdlib.h> 
 #include <time.h> 
+#include "math.h"
 
 using namespace std;
 
-void lab5_1();
-void lab5_2();
-void lab5_3();
+void lab6_1();
+void lab6_2();
+void lab6_3();
 
 void main() {
 	setlocale(LC_ALL, "Russian");
@@ -17,13 +18,13 @@ void main() {
 		cin >> c;
 		switch (c) {
 		case 1:
-			lab5_1();
+			lab6_1();
 			break;
 		case 2:
-			lab5_2();
+			lab6_2();
 			break;
 		case 3:
-			lab5_3();
+			lab6_3();
 			break;
 		case 0:
 			break;
@@ -34,7 +35,7 @@ void main() {
 	} while (!c == 0);
 }
 
-void lab5_1() {
+void lab6_1() {
 	float mas[15], s = 0;
 
 	cout << "Введите 15 элементов: ";
@@ -46,7 +47,7 @@ void lab5_1() {
 	cout << "Среднее арифметическое :" << s / 15 << endl;
 }
 
-void lab5_2() {
+void lab6_2() {
 	const int n = 20;
 	const int m = 15;
 	int mas[20][15];
@@ -68,6 +69,33 @@ void lab5_2() {
 	}
 }
 
-void lab5_3() {
+void lab6_3() {
+	const int n = 5;
+	int mas[n][n];
+	int g = n, j = 0, max;
 	
+	// заполнение массива случайными числами
+	srand(time(NULL));
+	for (int i = 0; i < n; i++) {
+		cout << i << ": ";
+		for (int j = 0; j < n; j++) {
+			mas[i][j] = rand() % 50+25;
+			cout << mas[i][j] << "\t";
+		}
+		cout << endl;
+	}
+	cout << endl;
+
+	// поиск максимального элемента в области
+	max = mas[0][0];
+
+	for (int i = 0; i < ceil(n/2.); i++) {
+		for (j =+ i; j < g; j++) {
+			if (mas[i][j] > max) {
+				max = mas[i][j];
+			}
+		}
+		g--;
+	}
+	cout << "Максимальный элемент из области: " << max << endl;
 }
