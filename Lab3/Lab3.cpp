@@ -10,6 +10,7 @@ void lab3_3();
 void lab3_4();
 void lab3_5();
 void lab3_6();
+int factor(float);
 
 void main() {
 	setlocale(LC_ALL, "Russian");
@@ -142,5 +143,24 @@ void lab3_5() {
 }
 
 void lab3_6() {
+	float n, m, f;
+	do {
+		cout << "Введите n и m(n>=m>0): " << endl << "n: ";
+		cin >> n;
+		cout << "m: ";
+		cin >> m;
+		if (!(n >= m && m > 0)) {
+			cout << "Ошибка ввода!" << endl;
+		}
+	} while (!(n >= m && m > 0));
+	f = (factor(n)) / (factor(n - m));
+	cout << "Число размещений: "<< f << endl;
+}
 
+int factor(float N) {
+	double factorial = 1;
+	for (double i = 1; i <= N; i++) {
+		factorial *= i;
+	}
+	return factorial;
 }
