@@ -157,7 +157,7 @@ void lab3_6() {
 	cout << "Число размещений: "<< f << endl;
 }
 
-int factor(float N) {
+float factor(float N) {
 	double factorial = 1;
 	for (double i = 1; i <= N; i++) {
 		factorial *= i;

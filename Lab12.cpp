@@ -26,18 +26,15 @@ void main() {
 		getline(cin,library[i].genre);
 		cout << "Наличие: ";
 		cin >> library[i].has;
+		cin.ignore();
 	}
 	cout << "Ключ: ";
-	cin.ignore();
-	//getline(cin, key);
-	//for(int i = 0; i < n; i++){
-	//	if((key == library[i].name) || (key == library[i].author) || (key == library[i].genre)){
-	//		cout << "Книга найдена и ";
-	//		if (library[i].has){
-	//			cout << "она есть в наличии"<<endl;
-	//		} else cout << "её нет в наличии"<<endl;
-	//	} else cout << "Книга не найдена"<<endl;
-	//}
+	getline(cin, key);
+	for(int i = 0; i < n; i++){
+		if((key == library[i].name) || (key == library[i].author) || (key == library[i].genre)){
+			cout << "книга найдена и ";
+		} else cout << "книга не найдена"<<endl;
+	}
 	cout << "Книги в наличии:"<<endl;
 	for(int i = 0; i < n; i++){
 		if(library[i].has){

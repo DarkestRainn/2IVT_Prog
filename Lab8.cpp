@@ -1,6 +1,5 @@
 ﻿#include <iostream>
 #include "Windows.h"
-#include <math.h>
 #include <iomanip>
 #include "time.h"
 

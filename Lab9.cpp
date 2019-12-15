@@ -122,7 +122,7 @@ void SelectFirstAndLastWords(char src[]) {
 		strLast = strLast + src[i];
 	}
 	transform(strLast.begin(), strLast.end(), strLast.begin(), changeToUpperCase);
-	// соедение трансформированных слов и остатка строки
+	// соединение трансформированных слов и остатка строки
 	string strFinal;
 	for (int i = 0; i < strlen(src); i++) {
 		strFinal += src[i];

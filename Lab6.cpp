@@ -50,7 +50,7 @@ void lab6_1() {
 void lab6_2() {
 	const int n = 20;
 	const int m = 15;
-	int mas[20][15];
+	int mas[n][m];
 
 	for (int i = 0; i < n; i++) {
 		if (i < 10) {

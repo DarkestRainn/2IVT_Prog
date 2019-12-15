@@ -50,8 +50,8 @@ void task1() {
 	for (int g = 0; g < n; g++){
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n-1; j++) {
-				if (mas[i][j] > mas[i][j+1]) {
-					swap(mas[i][j], mas[i][j+1]);
+				if (mas[j][i] > mas[j][i+1]) {
+					swap(mas[ij[i], mas[j][i+1]);
 				}
 			}
 		}

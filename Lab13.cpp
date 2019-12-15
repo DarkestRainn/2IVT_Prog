@@ -35,13 +35,13 @@ void task1() {
 	cout << "Введите размер массива: ";
 	cin >> n;
 	if (n <= 0) {
-		cout << "Невозможно выделить заданное количество элементов для массива" << endl;
+		cout << "Невозможно выделить заданное количество памяти для массива" << endl;
 		return;
 	}
 	int* mas = new int[n];
 	int* num = new int[n];
 	for (int i = 0; i < n; i++) {
-		mas[i] = rand() % 20 + 1;
+		mas[i] = rand() % 3 + 1;
 		cout << mas[i] << "\t";
 		// заполнение NULL'ами массива num
 		num[i] = -1;
@@ -66,7 +66,7 @@ void task1() {
 	cout << "Максимальный элемент: " << max << endl << "Его номера: " << "\t";
 	for (int i = 0; i < n; i++) {
 		if (num[i] >= 0) {
-			cout << num[i] + 1 << "\t";
+			cout << num[i]+1 << "\t";
 		}
 	}
 	cout << endl;
