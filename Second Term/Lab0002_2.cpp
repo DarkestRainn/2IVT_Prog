@@ -20,6 +20,7 @@ char popQueue(Queue *);
 Queue sequence;
 
 void main() {
+	//задание #2
 	setlocale(LC_ALL, "Russian");
 	char seq[]{'D','O','S','$','.'};
 	int size = sizeof(seq) / sizeof(char);
